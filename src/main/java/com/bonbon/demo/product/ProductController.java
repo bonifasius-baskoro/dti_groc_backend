@@ -1,6 +1,6 @@
 package com.bonbon.demo.product;
 
-// ProductController.java
+
 import com.bonbon.demo.product.DTO.ProductRequest;
 import com.bonbon.demo.product.entity.Product;
 import lombok.RequiredArgsConstructor;
