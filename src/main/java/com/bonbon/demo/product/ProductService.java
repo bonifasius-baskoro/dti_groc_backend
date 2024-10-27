@@ -34,6 +34,14 @@ public class ProductService {
         product.setCategory(request.getCategory());
         product.setImageUrl(request.getImageUrl());
 
+        ProductMetadata metadata = getProductMetadata(request, product);
+
+        product.setMetadata(metadata);
+
+        return productRepository.save(product);
+    }
+
+    private static ProductMetadata getProductMetadata(ProductRequest request, Product product) {
         ProductMetadata metadata = new ProductMetadata();
         metadata.setUnit(request.getMetadata().getUnit());
         metadata.setWeight(request.getMetadata().getWeight());
@@ -43,9 +51,6 @@ public class ProductService {
         metadata.setCarbs(request.getMetadata().getCarbs());
         metadata.setIncrement(request.getMetadata().getIncrement());
         metadata.setProduct(product);
-
-        product.setMetadata(metadata);
-
-        return productRepository.save(product);
+        return metadata;
     }
 }
